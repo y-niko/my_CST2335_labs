@@ -62,6 +62,18 @@ flutter:
      - images/question-mark.png
      - images/idea.png
      - images/stop.png
+     - images/beef.jpg
+     - images/brownies.jpg
+     - images/chicken.jpg
+     - images/cookie.jpg
+     - images/crockpot.jpg
+     - images/ice-cream.jpg
+     - images/main-dish.jpg
+     - images/pie.jpg
+     - images/pork.jpg
+     - images/salad.jpg
+     - images/seafood.jpg
+     - images/side-dish.jpg
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
 
