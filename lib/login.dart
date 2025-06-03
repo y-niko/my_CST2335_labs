@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'userRepository.dart';
+import 'profilePage.dart';
 import 'package:encrypted_shared_preferences/encrypted_shared_preferences.dart';
 
 
@@ -16,7 +18,11 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      initialRoute: '/',
+      routes: {
+        '/': (context) => const MyHomePage(title: 'Flutter Demo Home Page'),
+        '/profile': (context) => const ProfilePage(),
+      },
     );
   }
 }
@@ -48,6 +54,7 @@ class _MyHomePageState extends State<MyHomePage> {
     _passwordController = TextEditingController();
     imgSource = imgQuestion;
     _loadSavedCredentials();
+    UserRepository.loadData();
   }
 
   @override
@@ -108,6 +115,17 @@ class _MyHomePageState extends State<MyHomePage> {
       setState(() {
         imgSource = imgIdea;
       });
+
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('Welcome Back ${_nameController.text}')),
+      );
+
+      UserRepository.username = _nameController.text;
+
+      Navigator.pushNamed(
+        context,
+        "/profile",
+      );
     } else {
       setState(() {
         imgSource = imgStop;
